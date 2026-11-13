@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+title: Home
+---
+<section class="hero block-red">
+  <p class="eyebrow">Portfolio · {{ "2026" }}</p>
+  <h1>Hi, I'm <em>Easton&nbsp;Gibson.</em></h1>
+  <p class="hero__lede">{{ site.tagline }}</p>
+  <p><a class="btn btn--yellow" href="/portfolio/">See the work</a> <a class="btn btn--ghost" href="/resume/">Read the resume</a></p>
+</section>
+
+<section class="block-yellow">
+  <h2>Selected work</h2>
+  <div class="grid">
+    {% for p in collections.projects %}
+    <a class="card" href="{{ p.url }}" style="--h: {{ p.data.hue }}">
+      <span class="card__year">{{ p.data.year }}</span>
+      <h3>{{ p.data.title }}</h3>
+      <p>{{ p.data.summary }}</p>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="block-red">
+  <h2>About</h2>
+  <p class="prose-lg">A few sentences about who you are, what you care about, and what you're looking for. Swap this out for your real bio.</p>
+</section>

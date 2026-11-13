@@ -1,0 +1,8 @@
+{
+  "name": "Easton Gibson",
+  "tagline": "Software engineer who builds things that work and look good doing it.",
+  "email": "hello@example.com",
+  "links": [
+    { "label": "GitHub", "url": "https://github.com/easton873" }
+  ]
+}

@@ -1,0 +1,8 @@
+<header class="nav">
+  <a class="nav__brand" href="/">EG<span>.</span></a>
+  <nav>
+    <a href="/" {% if page.url == "/" %}aria-current="page"{% endif %}>Home</a>
+    <a href="/portfolio/" {% if page.url == "/portfolio/" or "/portfolio/" in page.url %}aria-current="page"{% endif %}>Portfolio</a>
+    <a href="/resume/" {% if page.url == "/resume/" %}aria-current="page"{% endif %}>Resume</a>
+  </nav>
+</header>

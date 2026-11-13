@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+bodyClass: theme-project
+---
+<article class="project">
+  <a class="back" href="/portfolio/">← All work</a>
+  <p class="eyebrow">{{ year }} · {{ role }}</p>
+  <h1 class="project__title">{{ title }}</h1>
+  <p class="project__lede">{{ summary }}</p>
+  <ul class="tags">{% for t in tags %}<li>{{ t }}</li>{% endfor %}</ul>
+  <div class="project__hero" aria-hidden="true"><span>{{ title }}</span></div>
+  <div class="prose">{{ content | safe }}</div>
+  {% if links %}<p class="project__links">{% for l in links %}<a class="btn" href="{{ l.url }}">{{ l.label }} ↗</a> {% endfor %}</p>{% endif %}
+
+  {% set projects = collections.projects %}
+  <nav class="pager">
+    {% for p in projects %}{% if p.url == page.url %}
+      {% if not loop.first %}{% set prev = projects[loop.index0 - 1] %}<a href="{{ prev.url }}" style="--h: {{ prev.data.hue }}">← {{ prev.data.title }}</a>{% else %}<span></span>{% endif %}
+      {% if not loop.last %}{% set next = projects[loop.index0 + 1] %}<a href="{{ next.url }}" style="--h: {{ next.data.hue }}">{{ next.data.title }} →</a>{% endif %}
+    {% endif %}{% endfor %}
+  </nav>
+</article>

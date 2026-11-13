@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+title: Portfolio
+permalink: /portfolio/index.html
+---
+<section class="block-red page-head">
+  <p class="eyebrow">Portfolio</p>
+  <h1>Work, each in its <em>own colour.</em></h1>
+</section>
+<section class="block-yellow">
+  <div class="grid grid--tall">
+    {% for p in collections.projects %}
+    <a class="card card--tall" href="{{ p.url }}" style="--h: {{ p.data.hue }}">
+      <span class="card__year">{{ p.data.year }} · {{ p.data.role }}</span>
+      <h3>{{ p.data.title }}</h3>
+      <p>{{ p.data.summary }}</p>
+      <ul class="tags">{% for t in p.data.tags %}<li>{{ t }}</li>{% endfor %}</ul>
+    </a>
+    {% endfor %}
+  </div>
+</section>
