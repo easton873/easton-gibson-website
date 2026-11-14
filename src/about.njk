@@ -1,0 +1,28 @@
+---
+layout: layouts/base.njk
+title: About
+bodyClass: theme-about
+permalink: /about/index.html
+---
+<div class="about" id="about" style="--n: {{ about | length }}">
+  <div class="about__stage">
+    {% for s in about %}
+    <section class="slide" data-transition="{{ s.transition }}" style="--h: {{ s.hue }}" aria-label="{{ s.kicker }}">
+      <img class="slide__bg" src="{{ s.image }}" alt="" aria-hidden="true">
+      <div class="slide__tint"></div>
+      <div class="slide__inner">
+        <div class="slide__copy">
+          <p class="slide__kicker"><span>0{{ loop.index }}</span> {{ s.kicker }}</p>
+          <h2 class="slide__title">{{ s.title }}</h2>
+          <p class="slide__text">{{ s.text }}</p>
+          {% if s.cta %}<a class="btn slide__cta" href="{{ s.cta.url }}">{{ s.cta.label }} →</a>{% endif %}
+        </div>
+        <figure class="slide__card"><img src="{{ s.image }}" alt="{{ s.alt }}"></figure>
+      </div>
+    </section>
+    {% endfor %}
+    <ol class="about__dots" aria-hidden="true">{% for s in about %}<li style="--h: {{ s.hue }}"></li>{% endfor %}</ol>
+    <p class="about__hint" aria-hidden="true">Scroll <span>↓</span></p>
+  </div>
+</div>
+<script src="/js/about.js" defer></script>
