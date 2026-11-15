@@ -119,6 +119,7 @@ h1 em { font-style: normal; color: var(--yellow); }
 
 /* ---------- About: scroll-driven stage ---------- */
 .theme-about { background: #140806; }
+.theme-about::before { display: none; } /* full-screen multiply-blended noise is too costly to repaint while scrolling */
 .theme-about .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; color: #fff; text-shadow: 0 1px 12px rgb(0 0 0 / .5); }
 .about { --ink: #fff; }
 .slide {
@@ -141,15 +142,16 @@ h1 em { font-style: normal; color: var(--yellow); }
 /* Enhanced (JS) mode: pinned stage, slides stacked and revealed by clip-path */
 .about.enhanced { height: calc(var(--n) * 100vh); position: relative; }
 .about.enhanced .about__stage { position: sticky; top: 0; height: 100vh; overflow: hidden; }
-.about.enhanced .slide { position: absolute; inset: 0; min-height: 0; will-change: clip-path; }
+.about.enhanced .slide { position: absolute; inset: 0; min-height: 0; contain: strict; }
 .about.enhanced .slide:nth-child(1) { z-index: 1; } .about.enhanced .slide:nth-child(2) { z-index: 2; }
 .about.enhanced .slide:nth-child(3) { z-index: 3; } .about.enhanced .slide:nth-child(4) { z-index: 4; }
 .about.enhanced .slide:nth-child(5) { z-index: 5; } .about.enhanced .slide:nth-child(6) { z-index: 6; }
 .about.enhanced .slide:nth-child(7) { z-index: 7; } .about.enhanced .slide:nth-child(8) { z-index: 8; }
 .about.enhanced .slide__inner { height: 100%; }
-.about.enhanced .slide__bg { transform: translateY(var(--bgY, 0)) scale(var(--bgScale, 1)); will-change: transform; }
-.about.enhanced .slide::after { content: ""; position: absolute; inset: 0; background: #000; opacity: var(--dim, 0); pointer-events: none; z-index: 1; }
-.about.enhanced .slide__card { transform: translateY(var(--cardY, 0)) rotate(var(--cardR, 0)); will-change: transform; }
+.about.enhanced .slide__bg { will-change: transform; }
+.slide__dim { display: none; }
+.about.enhanced .slide__dim { display: block; position: absolute; inset: 0; background: #000; opacity: 0; pointer-events: none; z-index: 1; }
+.about.enhanced .slide__card { will-change: transform; }
 
 /* text reveals with a stagger when a slide becomes active */
 .about.enhanced .slide__kicker, .about.enhanced .slide__title, .about.enhanced .slide__text, .about.enhanced .slide__cta {

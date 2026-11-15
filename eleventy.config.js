@@ -2,6 +2,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/css": "css" });
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "src/js": "js" });
+  // Hand-built, one-off project pages (own HTML/CSS/JS, no shared layout)
+  eleventyConfig.addPassthroughCopy({ "src/portfolio-pages": "portfolio" });
 
   // All portfolio projects, newest first (sorted by `order`, then date)
   eleventyConfig.addCollection("projects", (api) =>

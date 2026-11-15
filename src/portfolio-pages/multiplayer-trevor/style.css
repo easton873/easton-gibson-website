@@ -1,0 +1,78 @@
+/* Multiplayer Trevor: a one-off, pixel-art page. Single hue (arcane violet) on every slide. */
+:root {
+  --bg-a: #150b26;
+  --bg-b: #1d1136;
+  --ink: #f3ecff;
+  --ink-dim: #b8a6e0;
+  --accent: #a78bfa;
+  --accent-hi: #d8c8ff;
+  --px: 4px;
+  --pixel: "Press Start 2P", ui-monospace, monospace;
+  --body: "VT323", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { background: var(--bg-a); }
+body { margin: 0; color: var(--ink); font-family: var(--body); font-size: 1.5rem; line-height: 1.25; background: var(--bg-a); }
+
+.quest { position: relative; height: calc(var(--n) * 100vh); height: calc(var(--n) * 100svh); }
+.quest__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+
+/* HUD */
+.hud { position: absolute; z-index: 100; inset: 0 0 auto 0; display: flex; align-items: center; gap: 1.25rem; padding: 1rem 1.5rem; pointer-events: none; font-family: var(--pixel); font-size: .7rem; }
+.hud > * { pointer-events: auto; }
+.hud__back { color: var(--ink); text-decoration: none; padding: .6rem .8rem; background: var(--bg-a); border: var(--px) solid var(--accent); box-shadow: var(--px) var(--px) 0 #000; }
+.hud__back:hover, .hud__back:focus-visible { background: var(--accent); color: var(--bg-a); outline: none; }
+.hud__bar { flex: 1; height: 20px; border: var(--px) solid var(--accent); background: var(--bg-a); padding: 2px; box-shadow: var(--px) var(--px) 0 #000; }
+.hud__bar span { display: block; height: 100%; width: 0; background: repeating-linear-gradient(90deg, var(--accent) 0 12px, transparent 12px 16px); }
+.hud__count { margin: 0; padding: .6rem .8rem; background: var(--bg-a); border: var(--px) solid var(--accent); box-shadow: var(--px) var(--px) 0 #000; }
+
+/* Slides */
+.slide, .edge { position: absolute; inset: 0; }
+.edge { background: var(--accent); visibility: hidden; }
+.slide {
+  display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); align-items: center; gap: clamp(1.5rem, 4vw, 4rem);
+  padding: 5.5rem clamp(1.5rem, 5vw, 5rem) 3rem;
+  background-color: var(--bg-a);
+  background-image:
+    linear-gradient(rgba(167,139,250,.07) 2px, transparent 2px),
+    linear-gradient(90deg, rgba(167,139,250,.07) 2px, transparent 2px);
+  background-size: 32px 32px;
+}
+.slide:nth-of-type(even) { background-color: var(--bg-b); }
+
+.screen { margin: 0; position: relative; border: calc(var(--px) * 2) solid var(--accent); background: #000; box-shadow: 12px 12px 0 #000, 12px 12px 0 var(--px) var(--accent); image-rendering: pixelated; }
+.screen img { display: block; width: 100%; height: auto; max-height: calc(100vh - 10rem); object-fit: contain; image-rendering: pixelated; }
+/* CRT scanlines */
+.screen::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(0deg, rgba(0,0,0,.08) 0 2px, transparent 2px 4px); }
+
+/* RPG dialog box */
+.dialog { position: relative; padding: 1.5rem 1.6rem 1.7rem; background: var(--bg-a); border: var(--px) solid var(--ink); box-shadow: 0 0 0 var(--px) var(--accent), 12px 12px 0 var(--px) #000; }
+.dialog__stage { margin: 0 0 .9rem; font-family: var(--pixel); font-size: .65rem; color: var(--accent); }
+.dialog__title { margin: 0 0 1rem; font-family: var(--pixel); font-weight: 400; font-size: clamp(1rem, 1.8vw, 1.5rem); line-height: 1.4; color: var(--accent-hi); text-shadow: var(--px) var(--px) 0 #000; }
+.dialog__text { margin: 0; font-size: clamp(1.35rem, 1.9vw, 1.75rem); color: var(--ink); }
+.dialog__tags { margin: 1.1rem 0 0; display: flex; flex-wrap: wrap; gap: .6rem; }
+.dialog__tags:empty { display: none; }
+.dialog__tags span { font-family: var(--pixel); font-size: .55rem; padding: .45rem .6rem; background: var(--accent); color: var(--bg-a); }
+.dialog::after { content: "\25BC"; position: absolute; right: 1rem; bottom: .55rem; font-family: var(--pixel); font-size: .6rem; color: var(--accent); animation: blink 1s steps(2) infinite; }
+
+.hint { position: absolute; z-index: 100; bottom: 1rem; left: 50%; translate: -50% 0; margin: 0; font-family: var(--pixel); font-size: .65rem; color: var(--accent-hi); animation: blink 1s steps(2) infinite; transition: opacity .2s steps(3); }
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Active slide: caption pops in with stepped (choppy) motion */
+.quest.enhanced .slide .dialog { opacity: 0; transform: translateY(24px); transition: opacity .4s steps(4), transform .4s steps(4); }
+.quest.enhanced .slide.is-active .dialog { opacity: 1; transform: none; }
+
+@media (max-width: 800px) {
+  .slide { grid-template-columns: 1fr; align-content: center; gap: 1.5rem; padding-top: 5rem; }
+  .screen img { max-height: 38vh; }
+  .dialog { padding: 1rem 1.1rem 1.3rem; }
+  .dialog__text { font-size: 1.25rem; }
+}
+
+/* Reduced motion / no JS: plain stacked sections */
+.quest:not(.enhanced) { height: auto; }
+.quest:not(.enhanced) .quest__stage { position: static; height: auto; overflow: visible; }
+.quest:not(.enhanced) .slide { position: relative; min-height: 100vh; }
+.quest:not(.enhanced) .hud { position: sticky; top: 0; }
+.quest:not(.enhanced) .edge, .quest:not(.enhanced) .hint { display: none; }
+@media (prefers-reduced-motion: reduce) { .dialog::after, .hint { animation: none; } }

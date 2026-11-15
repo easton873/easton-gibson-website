@@ -9,6 +9,13 @@ permalink: /portfolio/index.html
 </section>
 <section class="block-yellow">
   <div class="grid grid--tall">
+    {# Hand-built page (src/portfolio-pages/multiplayer-trevor), not part of the projects collection #}
+    <a class="card card--tall" href="/portfolio/multiplayer-trevor/" style="--h: 270">
+      <span class="card__year">Game · Full-stack developer</span>
+      <h3>Multiplayer Trevor</h3>
+      <p>An online multiplayer wizard RPG with 20+ spells, built on Node.js and socket.io.</p>
+      <ul class="tags"><li>Node.js</li><li>socket.io</li></ul>
+    </a>
     {% for p in collections.projects %}
     <a class="card card--tall" href="{{ p.url }}" style="--h: {{ p.data.hue }}">
       <span class="card__year">{{ p.data.year }} · {{ p.data.role }}</span>

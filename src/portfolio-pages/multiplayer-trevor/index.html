@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Multiplayer Trevor · Easton Gibson</title>
+<meta name="description" content="Multiplayer Trevor: an online multiplayer wizard RPG built with Node.js and socket.io.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="quest" id="quest" style="--n: 10">
+  <div class="quest__stage">
+    <header class="hud">
+      <a class="hud__back" href="/portfolio/">&#9664; BACK</a>
+      <div class="hud__bar" aria-hidden="true"><span id="bar"></span></div>
+      <p class="hud__count" aria-hidden="true"><span id="cur">01</span>/10</p>
+    </header>
+    <div class="edge" aria-hidden="true"></div>
+    <section class="slide slide--first" aria-label="Join the fight">
+      <figure class="screen"><img src="/assets/images/multiplayer-trevor/10.png" alt="Title screen with a Join Game button, name field and player colour picker" width="1600" height="900"></figure>
+      <div class="dialog">
+        <p class="dialog__stage">STAGE 01</p>
+        <h2 class="dialog__title">Join the fight</h2>
+        <p class="dialog__text">Pick a name, pick a colour, hit Join Game. Multiplayer Trevor is an online RPG built with Node.js and socket.io, where everyone who joins shares the same live world.</p>
+        <p class="dialog__tags"><span>Node.js</span><span>socket.io</span></p>
+      </div>
+    </section>
+    <div class="edge" aria-hidden="true"></div>
+    <section class="slide" aria-label="Spawn in">
+      <figure class="screen"><img src="/assets/images/multiplayer-trevor/01.png" alt="Wizard in a grassy field with enemies, and a health, mana and gold readout" width="1200" height="790"></figure>
+      <div class="dialog">
+        <p class="dialog__stage">STAGE 02</p>
+        <h2 class="dialog__title">Spawn in</h2>
+        <p class="dialog__text">You arrive as a wizard with a magicbolt, 300 health, 100 mana and a pile of gold. Enemies are already wandering the grass.</p>
+        <p class="dialog__tags"></p>
+      </div>
+    </section>
+    <div class="edge" aria-hidden="true"></div>
+    <section class="slide" aria-label="Room to room">
+      <figure class="screen"><img src="/assets/images/multiplayer-trevor/02.png" alt="Stone dungeon room with doors on every side and a firewave sweeping across it" loading="lazy" width="1200" height="790"></figure>
+      <div class="dialog">
+        <p class="dialog__stage">STAGE 03</p>
+        <h2 class="dialog__title">Room to room</h2>
+        <p class="dialog__text">The dungeon is a chain of rooms linked by wooden doors. Each one is packed with enemies that all attack in their own way.</p>
+        <p class="dialog__tags"></p>
+      </div>
+    </section>
+    <div class="edge" aria-hidden="true"></div>
+    <section class="slide" aria-label="Spell slots">
+      <figure class="screen"><img src="/assets/images/multiplayer-trevor/03.png" alt="Ring of fire around the wizard with coloured enemies and the equipped spell highlighted" loading="lazy" width="1200" height="790"></figure>
+      <div class="dialog">
+        <p class="dialog__stage">STAGE 04</p>
+        <h2 class="dialog__title">Spell slots</h2>
+        <p class="dialog__text">Your spells are numbered, and the one you've equipped is highlighted. Here a ring of fire closes in around a pack of enemies.</p>
+        <p class="dialog__tags"></p>
+      </div>
+    </section>
+    <div class="edge" aria-hidden="true"></div>
+    <section class="slide" aria-label="Afterimage">
+      <figure class="screen"><img src="/assets/images/multiplayer-trevor/04.png" alt="Several wizard copies with cyan bolts flying across a brick room" loading="lazy" width="1200" height="790"></figure>
+      <div class="dialog">
+        <p class="dialog__stage">STAGE 05</p>
+        <h2 class="dialog__title">Afterimage</h2>
+        <p class="dialog__text">Afterimage splits off copies of the wizard while cyan bolts fly across the room. Picking the right spell at the right moment is the whole game.</p>
+        <p class="dialog__tags"></p>
+      </div>
+    </section>
+    <div class="edge" aria-hidden="true"></div>
+    <section class="slide" aria-label="Fireball">
+      <figure class="screen"><img src="/assets/images/multiplayer-trevor/05.png" alt="A fireball flying toward a cluster of white blocks with health bars" loading="lazy" width="1200" height="790"></figure>
+      <div class="dialog">
+        <p class="dialog__stage">STAGE 06</p>
+        <h2 class="dialog__title">Fireball</h2>
+        <p class="dialog__text">A fireball streaks toward a cluster of enemies, with health bars floating above anything that's been hit.</p>
+        <p class="dialog__tags"></p>
+      </div>
+    </section>
+    <div class="edge" aria-hidden="true"></div>
+    <section class="slide" aria-label="More magic">
+      <figure class="screen"><img src="/assets/images/multiplayer-trevor/06.png" alt="Red firewall and a summoned turret in a room full of enemies" loading="lazy" width="1200" height="790"></figure>
+      <div class="dialog">
+        <p class="dialog__stage">STAGE 07</p>
+        <h2 class="dialog__title">More magic</h2>
+        <p class="dialog__text">Firewall, freeze, summon turret and more. With 20+ moves to unlock, you build a toolkit that suits how you play.</p>
+        <p class="dialog__tags"></p>
+      </div>
+    </section>
+    <div class="edge" aria-hidden="true"></div>
+    <section class="slide" aria-label="The Teacher">
+      <figure class="screen"><img src="/assets/images/multiplayer-trevor/07.png" alt="Shop list of 20+ spells with prices and Purchase buttons" loading="lazy" width="1600" height="900"></figure>
+      <div class="dialog">
+        <p class="dialog__stage">STAGE 08</p>
+        <h2 class="dialog__title">The Teacher</h2>
+        <p class="dialog__text">Gold from defeated enemies buys new moves from the Teacher: fireball, landmine, lightning, chain lightning and the 2000 gold armageddon.</p>
+        <p class="dialog__tags"></p>
+      </div>
+    </section>
+    <div class="edge" aria-hidden="true"></div>
+    <section class="slide" aria-label="The Upgrader">
+      <figure class="screen"><img src="/assets/images/multiplayer-trevor/08.png" alt="Upgrade menu listing each spell's stats with prices and upgrade buttons" loading="lazy" width="1600" height="900"></figure>
+      <div class="dialog">
+        <p class="dialog__stage">STAGE 09</p>
+        <h2 class="dialog__title">The Upgrader</h2>
+        <p class="dialog__text">Already own a spell? Spend gold to boost its damage, range, duration or cost, and make your favourites even better.</p>
+        <p class="dialog__tags"></p>
+      </div>
+    </section>
+    <div class="edge" aria-hidden="true"></div>
+    <section class="slide" aria-label="Game over">
+      <figure class="screen"><img src="/assets/images/multiplayer-trevor/09.png" alt="YOU DIED screen with a Respawn button" loading="lazy" width="1600" height="900"></figure>
+      <div class="dialog">
+        <p class="dialog__stage">STAGE 10</p>
+        <h2 class="dialog__title">Game over</h2>
+        <p class="dialog__text">Get overwhelmed and it's YOU DIED. Respawn, spend what gold you've got and jump back in.</p>
+        <p class="dialog__tags"></p>
+      </div>
+    </section>
+    <p class="hint" aria-hidden="true">SCROLL &#9660;</p>
+  </div>
+</div>
+<script src="script.js" defer></script>
+</body>
+</html>
