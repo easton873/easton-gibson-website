@@ -1,0 +1,80 @@
+/* Linear Algebra BF: one-off page. A plain, static page that looks like graph-paper math homework. */
+:root {
+  --paper: #fdfdf8;
+  --grid: #cfe3f2;
+  --grid-strong: #a9cde8;
+  --margin: #e5736f;
+  --ink: #1f2a44;
+  --pen: #1d4fd7;     /* blue pen */
+  --red: #c0392b;     /* teacher's red pen */
+  --muted: #5b6478;
+  --hand: "Caveat", "Segoe Print", cursive;
+  --serif: "STIX Two Text", "Latin Modern Roman", Georgia, serif;
+}
+* { box-sizing: border-box; }
+html { background: #e9eef2; }
+body { margin: 0; color: var(--ink); font-family: var(--serif); font-size: 1.2rem; line-height: 1.6; }
+
+/* the sheet of graph paper */
+.paper {
+  position: relative; max-width: 62rem; min-height: 100vh; margin: 0 auto; padding: 2.5rem 2rem 4rem 5.5rem;
+  background-color: var(--paper);
+  background-image:
+    linear-gradient(var(--grid-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-strong) 1px, transparent 1px),
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px;
+  box-shadow: 0 0 40px rgba(0,0,0,.12);
+}
+/* red margin rule */
+.paper::before { content: ""; position: absolute; top: 0; bottom: 0; left: 4.1rem; width: 2px; background: var(--margin); }
+
+.back { display: inline-block; margin-bottom: 1.5rem; padding: .15rem .7rem; font-family: var(--hand); font-size: 1.5rem; color: var(--pen); text-decoration: none; border: 2px solid var(--pen); border-radius: 6px 14px 8px 12px; background: var(--paper); }
+.back:hover, .back:focus-visible { background: var(--pen); color: #fff; outline: none; }
+
+/* header */
+.head { margin-bottom: 3rem; padding-bottom: 1.5rem; border-bottom: 3px double var(--ink); }
+.head__meta { margin: 0 0 1rem; font-family: var(--hand); font-size: 1.4rem; color: var(--pen); }
+.head h1 { margin: 0 0 .5rem; font-size: clamp(2.6rem, 8vw, 5rem); line-height: 1; font-weight: 700; letter-spacing: -.01em; }
+.head h1 span { font-family: var(--hand); font-style: normal; color: var(--red); font-size: 1.15em; }
+.head__lede { max-width: 38rem; margin: 0 0 1rem; font-size: 1.3rem; }
+.tags { display: flex; gap: .6rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+.tags li { padding: .1rem .8rem; border: 2px solid var(--ink); border-radius: 999px; font-family: var(--hand); font-size: 1.35rem; background: var(--paper); }
+
+/* typeset math */
+.math { margin: 1rem 0; font-size: 1.35rem; font-style: italic; overflow-x: auto; max-width: 100%; padding: .3rem 0; }
+.math--hero { font-size: 1.6rem; }
+.mat { position: relative; display: inline-grid; grid-template-columns: repeat(var(--c), auto); gap: .1rem 1.1rem; margin: 0 .3rem; padding: .25rem 1.1rem; vertical-align: middle; font-style: normal; font-variant-numeric: tabular-nums; text-align: right; }
+.mat::before, .mat::after { content: ""; position: absolute; top: 0; bottom: 0; width: .5rem; border: 2px solid var(--ink); }
+.mat::before { left: 0; border-right: 0; }
+.mat::after { right: 0; border-left: 0; }
+
+/* problems */
+.problem { margin: 0 0 3.5rem; }
+.problem h2 { display: flex; align-items: center; gap: .8rem; margin: 0 0 1rem; font-family: var(--hand); font-size: 2.3rem; font-weight: 700; color: var(--pen); line-height: 1.1; }
+.num { display: inline-grid; place-items: center; width: 2.6rem; height: 2.6rem; flex: none; border: 3px solid var(--red); border-radius: 50%; color: var(--red); font-size: 1.7rem; }
+.problem__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 1.5rem 2.5rem; align-items: start; }
+.problem__text p { margin: 0 0 .8rem; }
+.problem__text code { padding: .05rem .4rem; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .9em; background: #fff; border: 1px solid var(--grid-strong); border-radius: 4px; }
+.note { font-family: var(--hand); font-size: 1.5rem; line-height: 1.2; color: var(--red); transform: rotate(-2deg); }
+
+/* terminal screenshots, taped to the page */
+.printout { position: relative; margin: 0; padding: 10px; background: #fff; border: 1px solid #c8ccd3; box-shadow: 3px 4px 10px rgba(0,0,0,.2); transform: rotate(.6deg); }
+.problem:nth-of-type(even) .printout { transform: rotate(-.6deg); }
+.printout::before, .printout::after { content: ""; position: absolute; top: -12px; width: 70px; height: 24px; background: rgba(232,210,120,.75); }
+.printout::before { left: 18px; transform: rotate(-6deg); }
+.printout::after { right: 18px; transform: rotate(5deg); }
+.printout img { display: block; width: 100%; height: auto; }
+
+.foot { margin-top: 2rem; padding-top: 1.5rem; border-top: 3px double var(--ink); }
+.foot__qed { font-family: var(--hand); font-size: 1.8rem; color: var(--red); margin: 0 0 1rem; }
+
+@media (max-width: 820px) {
+  .paper { padding: 1.5rem 1rem 3rem 2.6rem; }
+  .paper::before { left: 1.9rem; }
+  .problem__grid { grid-template-columns: 1fr; }
+  .problem h2 { font-size: 1.9rem; }
+  .math { font-size: 1.1rem; }
+  .mat { gap: .1rem .6rem; padding: .25rem .8rem; }
+}

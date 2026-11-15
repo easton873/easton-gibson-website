@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Command Line SmartBudget · Easton Gibson</title>
+<meta name="description" content="Command Line SmartBudget: a C++ budgeting program you drive entirely from the terminal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="tl" id="tl">
+  <div class="tl__stage">
+    <canvas class="rain" id="rain" aria-hidden="true"></canvas>
+    <header class="hud">
+      <a class="hud__back" href="/portfolio/">[ &larr; back ]</a>
+      <p class="hud__prompt" aria-hidden="true">$ ./smartbudget --timeline<span class="cursor"></span></p>
+      <p class="hud__pct" id="pct" aria-hidden="true">[--------------------] 000%</p>
+    </header>
+
+    <div class="track" id="track">
+      <svg class="line" id="line" aria-hidden="true"><path class="line__dim" id="lineDim"/><path class="line__lit" id="lineLit"/></svg>
+      <div class="ruler" id="ruler" aria-hidden="true"></div>
+
+      <article class="event event--intro" data-y="0.5" aria-label="Command Line SmartBudget">
+        <span class="node"></span>
+        <div class="card">
+          <p class="card__kicker" data-decode>0x00 // BOOT</p>
+          <h1 class="card__big" data-decode>COMMAND LINE<br>SMARTBUDGET</h1>
+          <p class="card__text" data-decode>A budgeting program that lives in the terminal. No windows, no buttons: you type a command and it answers. Scroll to follow its timeline.</p>
+          <p class="card__tags"><span>C++</span><span>CLI</span></p>
+        </div>
+      </article>
+
+      <article class="event" data-y="0.67" aria-label="First run">
+        <span class="node"></span>
+        <div class="card">
+          <h2 class="card__title" data-decode>0x01 // FIRST RUN</h2>
+          <figure class="shot"><div class="shot__bar"><i></i><i></i><i></i><span>smartbudget.exe</span></div><img src="/assets/images/command-line-smartbudget/01.png" alt="Terminal telling the user no budget exists for this month yet and creating one" width="1098" height="630"></figure>
+          <p class="card__text" data-decode>Launch it in a new month and it notices, tells you there's no budget yet, and creates one before dropping you at the prompt.</p>
+        </div>
+      </article>
+
+      <article class="event" data-y="0.33" aria-label="The menu">
+        <span class="node"></span>
+        <div class="card">
+          <h2 class="card__title" data-decode>0x02 // THE MENU</h2>
+          <figure class="shot"><div class="shot__bar"><i></i><i></i><i></i><span>smartbudget.exe</span></div><img src="/assets/images/command-line-smartbudget/03.png" alt="Terminal listing the main menu commands and the reporting sub-commands" width="1092" height="630" loading="lazy"></figure>
+          <p class="card__text" data-decode>Everything is a typed command: report, stats, view, view all, save, open, constants, options and quit. Reporting adds its own: new, add, remove, reset.</p>
+        </div>
+      </article>
+
+      <article class="event" data-y="0.68" aria-label="Monthly stats">
+        <span class="node"></span>
+        <div class="card">
+          <h2 class="card__title" data-decode>0x03 // STATS</h2>
+          <figure class="shot"><div class="shot__bar"><i></i><i></i><i></i><span>smartbudget.exe</span></div><img src="/assets/images/command-line-smartbudget/02.png" alt="Terminal printing monthly stats with allotted, spent and remaining per category" width="1097" height="632" loading="lazy"></figure>
+          <p class="card__text" data-decode>Type stats for the month at a glance: money to spend, already spent, still remaining, then every category's allotted, spent and remaining amounts.</p>
+        </div>
+      </article>
+
+      <article class="event" data-y="0.32" aria-label="Saved as plain text">
+        <span class="node"></span>
+        <div class="card">
+          <h2 class="card__title" data-decode>0x04 // PLAIN TEXT</h2>
+          <figure class="shot shot--invert"><div class="shot__bar"><i></i><i></i><i></i><span>budget.txt</span></div><img src="/assets/images/command-line-smartbudget/04.png" alt="Text file listing days, purchase counts, categories, descriptions and costs" width="1002" height="777" loading="lazy"></figure>
+          <p class="card__text" data-decode>Budgets save as simple text files: a day number, how many purchases, then each purchase's category (#), description (@) and cost.</p>
+        </div>
+      </article>
+
+      <article class="event" data-y="0.67" aria-label="The source">
+        <span class="node"></span>
+        <div class="card">
+          <h2 class="card__title" data-decode>0x05 // THE SOURCE</h2>
+          <figure class="shot shot--invert"><div class="shot__bar"><i></i><i></i><i></i><span>SmartBudget.cpp</span></div><img src="/assets/images/command-line-smartbudget/05.png" alt="C++ source in Visual Studio showing the Expenditure and BudgetDay classes" width="1800" height="929" loading="lazy"></figure>
+          <p class="card__text" data-decode>Written in C++. Classes like Expenditure and BudgetDay hold the data, with methods to print and save each purchase.</p>
+        </div>
+      </article>
+
+      <article class="event event--outro" data-y="0.5" aria-label="Exit">
+        <span class="node"></span>
+        <div class="card">
+          <h2 class="card__title" data-decode>0x06 // EXIT</h2>
+          <p class="card__text" data-decode>&gt; quit<br>Process finished with exit code 0.</p>
+          <p class="card__tags"><a href="/portfolio/">[ &larr; back to portfolio ]</a></p>
+        </div>
+      </article>
+
+      <div class="head" id="head" aria-hidden="true"></div>
+    </div>
+    <p class="hint" id="hint" aria-hidden="true">scroll &darr; to travel &rarr;</p>
+  </div>
+</div>
+<script src="script.js" defer></script>
+</body>
+</html>

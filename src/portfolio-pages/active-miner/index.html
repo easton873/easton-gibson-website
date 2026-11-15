@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Active Miner · Easton Gibson</title>
+<meta name="description" content="Active Miner: a mining game where you dig, sell ore, level up and pick a skin.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=VT323&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="mine" id="mine" style="--n: 10">
+  <div class="mine__stage">
+    <header class="hud">
+      <a class="hud__back" href="/portfolio/">&#9664; BACK</a>
+      <div class="hud__bar" aria-hidden="true"><span id="bar"></span></div>
+      <p class="hud__count" aria-hidden="true">DEPTH <span id="cur">01</span>/10</p>
+    </header>
+    <section class="slide" aria-label="Title screen">
+      <figure class="phone"><img src="/assets/images/active-miner/01.png" alt="Title screen with Play, Leaderboards and Settings buttons" width="1400" height="730"></figure>
+      <div class="card">
+        <p class="card__stage">LEVEL 01</p>
+        <h2 class="card__title">Title screen</h2>
+        <p class="card__text">Active Miner opens on a stark black, red and green menu: Play, Leaderboards or Settings. Dig deep, then see how you stack up.</p>
+      </div>
+    </section>
+    <section class="slide" aria-label="Surface level">
+      <figure class="phone"><img src="/assets/images/active-miner/02.png" alt="Stick-figure miner standing on the surface above dirt with gold and blue ore" width="1400" height="730"></figure>
+      <div class="card">
+        <p class="card__stage">LEVEL 02</p>
+        <h2 class="card__title">Surface level</h2>
+        <p class="card__text">You start on the surface as a stick-figure miner. Up top sit the shop, an upgrade arrow and settings. Below, the dirt is packed with gold and blue ore.</p>
+      </div>
+    </section>
+    <section class="slide" aria-label="Tunnels & ladders">
+      <figure class="phone"><img src="/assets/images/active-miner/04.png" alt="Cross-section of dug tunnels with ladders and stone blocks" width="1400" height="730" loading="lazy"></figure>
+      <div class="card">
+        <p class="card__stage">LEVEL 03</p>
+        <h2 class="card__title">Tunnels & ladders</h2>
+        <p class="card__text">Dig down and the ground opens into tunnels. Ladders let you climb back out of everything you've carved away.</p>
+      </div>
+    </section>
+    <section class="slide" aria-label="Digging in">
+      <figure class="phone"><img src="/assets/images/active-miner/07.png" alt="Chicken miner digging through dirt with a stats readout on the left" width="1400" height="730" loading="lazy"></figure>
+      <div class="card">
+        <p class="card__stage">LEVEL 04</p>
+        <h2 class="card__title">Digging in</h2>
+        <p class="card__text">Mine block by block with a live readout of depth, durability, cash, stone destroyers, highscore and level. Here the chicken skin is hard at work.</p>
+      </div>
+    </section>
+    <section class="slide" aria-label="Stone in the way">
+      <figure class="phone"><img src="/assets/images/active-miner/08.png" alt="Chicken in a narrow tunnel with stone blocks, ore and a ladder" width="1400" height="730" loading="lazy"></figure>
+      <div class="card">
+        <p class="card__stage">LEVEL 05</p>
+        <h2 class="card__title">Stone in the way</h2>
+        <p class="card__text">Grey stone blocks and pockets of ore make every tunnel a little different, so you plan a route and keep an eye on your durability.</p>
+      </div>
+    </section>
+    <section class="slide" aria-label="Map view">
+      <figure class="phone"><img src="/assets/images/active-miner/03.png" alt="Map of the mine with white tunnels through brown dirt and scroll arrows" width="1400" height="730" loading="lazy"></figure>
+      <div class="card">
+        <p class="card__stage">LEVEL 06</p>
+        <h2 class="card__title">Map view</h2>
+        <p class="card__text">A zoomed-out map shows the whole dig at once, tunnels snaking through the ground, with arrows to scroll up and down.</p>
+      </div>
+    </section>
+    <section class="slide" aria-label="Cash out">
+      <figure class="phone"><img src="/assets/images/active-miner/11.png" alt="Shop screen showing ore with Sell and Sell All buttons" width="1400" height="730" loading="lazy"></figure>
+      <div class="card">
+        <p class="card__stage">LEVEL 07</p>
+        <h2 class="card__title">Cash out</h2>
+        <p class="card__text">Back at the shop you can sell what you've mined, one at a time with Sell or everything at once with Sell All.</p>
+      </div>
+    </section>
+    <section class="slide" aria-label="Level up?">
+      <figure class="phone"><img src="/assets/images/active-miner/10.png" alt="Dialog asking whether to level up, warning that it erases the world and resets stats" width="1400" height="730" loading="lazy"></figure>
+      <div class="card">
+        <p class="card__stage">LEVEL 08</p>
+        <h2 class="card__title">Level up?</h2>
+        <p class="card__text">Levelling up is a gamble. It erases the world and resets your stats to level 1, so the game makes you confirm first.</p>
+      </div>
+    </section>
+    <section class="slide" aria-label="Pause menu">
+      <figure class="phone"><img src="/assets/images/active-miner/05.png" alt="Pause menu with Resume, Skins and a red Save and Quit button" width="1400" height="730" loading="lazy"></figure>
+      <div class="card">
+        <p class="card__stage">LEVEL 09</p>
+        <h2 class="card__title">Pause menu</h2>
+        <p class="card__text">Resume, change your skin, or Save and Quit. The red button makes it clear which one ends your run.</p>
+      </div>
+    </section>
+    <section class="slide" aria-label="Pick a skin">
+      <figure class="phone"><img src="/assets/images/active-miner/06.png" alt="Skin picker showing retro, default, chicken, astronaut and T-rex miners" width="1400" height="730" loading="lazy"></figure>
+      <div class="card">
+        <p class="card__stage">LEVEL 10</p>
+        <h2 class="card__title">Pick a skin</h2>
+        <p class="card__text">Retro, Default, Chicken, Astronaut or T-rex. Pick whichever miner you want to dig with.</p>
+      </div>
+    </section>
+    <div class="wave" id="wave" aria-hidden="true"></div>
+    <p class="hint" aria-hidden="true">SCROLL &#9660;</p>
+  </div>
+</div>
+<script src="script.js" defer></script>
+</body>
+</html>

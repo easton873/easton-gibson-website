@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Linear Algebra BF · Easton Gibson</title>
+<meta name="description" content="Linear Algebra BF: a C++ command-line program for adding, reducing, inverting, exporting and importing matrices.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=STIX+Two+Text:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="paper">
+  <a class="back" href="/portfolio/">&larr; Back to portfolio</a>
+
+  <header class="head">
+    <p class="head__meta">Name: Easton &nbsp;&nbsp;&nbsp; Class: Linear Algebra &nbsp;&nbsp;&nbsp; Assignment: Build a calculator</p>
+    <h1>Linear Algebra <span>BF</span></h1>
+    <p class="head__lede">Your linear algebra <strong>best friend</strong>: a command-line program that stores matrices and row-reduces, inverts, exports and imports them, so the arithmetic is done for you.</p>
+    <div class="math math--hero">Ax = b &nbsp;&#8658;&nbsp; [&nbsp;A&nbsp;|&nbsp;b&nbsp;] &nbsp;&#8594;&nbsp; rref &nbsp;&#8594;&nbsp; x</div>
+    <ul class="tags"><li>C++</li><li>Command line</li></ul>
+  </header>
+
+  <section class="problem" aria-labelledby="p1">
+    <h2 id="p1"><span class="num">1</span>Say hello</h2>
+    <div class="problem__grid">
+      <div class="problem__text">
+        <p>The program greets you with <em>&ldquo;Welcome to your Linear Algebra best friend!&rdquo;</em> and a prompt. Type <code>options</code> and it lists every command: add, remove, edit, reduce, invert, print all, export, import and quit.</p>
+        
+        <p class="note" aria-hidden="true">&larr; No menus, just commands.</p>
+      </div>
+      <figure class="printout"><img src="/assets/images/linear-algebra-bf/01.png" alt="Terminal showing the welcome message and the list of commands" width="1097" height="635"></figure>
+    </div>
+  </section>
+  <section class="problem" aria-labelledby="p2">
+    <h2 id="p2"><span class="num">2</span>Enter a matrix</h2>
+    <div class="problem__grid">
+      <div class="problem__text">
+        <p>Type <code>add</code>, answer how many rows and columns, then feed it the entries one by one. Here a 3 &times; 4 matrix goes in:</p>
+        <div class="math">A = <span class="mat " style="--c:4"><span>1</span><span>2</span><span>6</span><span>3</span><span>6</span><span>8</span><span>9</span><span>5</span><span>4</span><span>5</span><span>6</span><span>7</span></span></div>
+        <p class="note" aria-hidden="true">&larr; rows first, then columns</p>
+      </div>
+      <figure class="printout"><img src="/assets/images/linear-algebra-bf/02.png" alt="Terminal asking for the rows, columns and then each entry of a new matrix" width="1101" height="636" loading="lazy"></figure>
+    </div>
+  </section>
+  <section class="problem" aria-labelledby="p3">
+    <h2 id="p3"><span class="num">3</span>See them all</h2>
+    <div class="problem__grid">
+      <div class="problem__text">
+        <p>Add as many matrices as you like, of any size, and <code>print all</code> numbers them from 0 so you can refer to each one.</p>
+        
+        <p class="note" aria-hidden="true">&larr; numbered from 0, like a good programmer</p>
+      </div>
+      <figure class="printout"><img src="/assets/images/linear-algebra-bf/03.png" alt="Terminal printing all stored matrices, numbered from zero" width="1097" height="636" loading="lazy"></figure>
+    </div>
+  </section>
+  <section class="problem" aria-labelledby="p4">
+    <h2 id="p4"><span class="num">4</span>Reduce and invert</h2>
+    <div class="problem__grid">
+      <div class="problem__text">
+        <p>Pick a matrix and <code>reduce</code> returns its reduced echelon form. <code>invert</code> hands back the inverse. These are the results from the screenshot:</p>
+        <div class="math"><span>rref(A) = <span class="mat " style="--c:4"><span>1</span><span>0</span><span>0</span><span>12.333</span><span>0</span><span>1</span><span>0</span><span>&minus;11.000</span><span>0</span><span>0</span><span>1</span><span>2.111</span></span></span></div><div class="math"><span>B = <span class="mat " style="--c:2"><span>3</span><span>2</span><span>5</span><span>7</span></span></span></div><div class="math"><span>B<sup>&minus;1</sup> = <span class="mat " style="--c:2"><span>0.636</span><span>&minus;0.182</span><span>&minus;0.455</span><span>0.273</span></span></span></div>
+        <p class="note" aria-hidden="true">&larr; row operations, no pencil required</p>
+      </div>
+      <figure class="printout"><img src="/assets/images/linear-algebra-bf/04.png" alt="Terminal showing an inverse matrix and a matrix in reduced echelon form" width="1100" height="633" loading="lazy"></figure>
+    </div>
+  </section>
+  <section class="problem" aria-labelledby="p5">
+    <h2 id="p5"><span class="num">5</span>Export</h2>
+    <div class="problem__grid">
+      <div class="problem__text">
+        <p>Done with a matrix? <code>export</code> saves it to a text file. You name it and <code>.txt</code> is added by default.</p>
+        
+        <p class="note" aria-hidden="true">&larr; saved as .txt</p>
+      </div>
+      <figure class="printout"><img src="/assets/images/linear-algebra-bf/06.png" alt="Terminal exporting a matrix to a text file named meep" width="1097" height="633" loading="lazy"></figure>
+    </div>
+  </section>
+  <section class="problem" aria-labelledby="p6">
+    <h2 id="p6"><span class="num">6</span>Import</h2>
+    <div class="problem__grid">
+      <div class="problem__text">
+        <p>Bring matrices back in with <code>import</code>. Give it a file name (again, <code>.txt</code> is added for you) and the matrix joins the list. Two imports later, <code>print all</code> shows the new ones alongside the originals.</p>
+        
+        <p class="note" aria-hidden="true">&larr; the list keeps growing</p>
+      </div>
+      <figure class="printout"><img src="/assets/images/linear-algebra-bf/05.png" alt="Terminal importing two files and then printing all matrices" width="1098" height="637" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <p class="foot__qed">Therefore, matrices are easier with a best friend. <span aria-hidden="true">&#8718;</span></p>
+    <p><a class="back back--foot" href="/portfolio/">&larr; Back to portfolio</a></p>
+  </footer>
+</main>
+</body>
+</html>

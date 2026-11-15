@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SmartBudget · Easton Gibson</title>
+<meta name="description" content="SmartBudget: an Android app for tracking who spent what, by category and by date.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="closet" id="closet" style="--n: 9">
+  <div class="closet__stage">
+    <header class="hud">
+      <a class="hud__back" href="/portfolio/">&larr; Back</a>
+      <div class="hud__track" aria-hidden="true"><span id="bar"></span></div>
+      <p class="hud__count" aria-hidden="true"><span id="cur">01</span> / 09</p>
+    </header>
+    <section class="slide" aria-label="Welcome in">
+      <figure class="phone"><img src="/assets/images/smartbudget/01.png" alt="Welcome to SmartBudget login screen with name and password fields" width="1080" height="1997"></figure>
+      <article class="card">
+        <div class="card__bar"><span>SmartBudget</span><i aria-hidden="true">01</i></div>
+        <div class="card__body">
+          <h2 class="card__title">Welcome in</h2>
+          <p class="card__text">SmartBudget opens on a simple login: enter your name and password to sign in, or register a new account.</p>
+        </div>
+      </article>
+    </section>
+    <section class="slide" aria-label="Whose budget?">
+      <figure class="phone"><img src="/assets/images/smartbudget/02.png" alt="List of three people, each showing a $0.0 balance" width="1080" height="1997"></figure>
+      <article class="card">
+        <div class="card__bar"><span>SmartBudget</span><i aria-hidden="true">02</i></div>
+        <div class="card__body">
+          <h2 class="card__title">Whose budget?</h2>
+          <p class="card__text">Each person gets their own budget, listed with their running total. Easton, Jimmy and Johnny Boy are all sitting at $0.0 so far.</p>
+        </div>
+      </article>
+    </section>
+    <section class="slide" aria-label="Add a person">
+      <figure class="phone"><img src="/assets/images/smartbudget/03.png" alt="Add person screen with the name Fred Williams typed in" width="1080" height="1997" loading="lazy"></figure>
+      <article class="card">
+        <div class="card__bar"><span>SmartBudget</span><i aria-hidden="true">03</i></div>
+        <div class="card__body">
+          <h2 class="card__title">Add a person</h2>
+          <p class="card__text">Tap the teal plus, type a name and hit Add. Fred Williams is about to join the list.</p>
+        </div>
+      </article>
+    </section>
+    <section class="slide" aria-label="One more on the list">
+      <figure class="phone"><img src="/assets/images/smartbudget/04.png" alt="List of four people including Fred Williams" width="1080" height="1997" loading="lazy"></figure>
+      <article class="card">
+        <div class="card__bar"><span>SmartBudget</span><i aria-hidden="true">04</i></div>
+        <div class="card__body">
+          <h2 class="card__title">One more on the list</h2>
+          <p class="card__text">And just like that, Fred shows up alongside everyone else, ready to start tracking.</p>
+        </div>
+      </article>
+    </section>
+    <section class="slide" aria-label="Pick a date">
+      <figure class="phone"><img src="/assets/images/smartbudget/05.png" alt="Calendar for January 2022 with an Add Category button" width="1080" height="1997" loading="lazy"></figure>
+      <article class="card">
+        <div class="card__bar"><span>SmartBudget</span><i aria-hidden="true">05</i></div>
+        <div class="card__body">
+          <h2 class="card__title">Pick a date</h2>
+          <p class="card__text">A calendar lets you choose the day you're budgeting for, then lets you add a category to it.</p>
+        </div>
+      </article>
+    </section>
+    <section class="slide" aria-label="Sort it into categories">
+      <figure class="phone"><img src="/assets/images/smartbudget/06.png" alt="List of categories Food, Misc, Rent and Social with $0.0 totals" width="1080" height="1997" loading="lazy"></figure>
+      <article class="card">
+        <div class="card__bar"><span>SmartBudget</span><i aria-hidden="true">06</i></div>
+        <div class="card__body">
+          <h2 class="card__title">Sort it into categories</h2>
+          <p class="card__text">Food, Misc, Rent and Social: spending lives in categories, each with its own total.</p>
+        </div>
+      </article>
+    </section>
+    <section class="slide" aria-label="Log an expense">
+      <figure class="phone"><img src="/assets/images/smartbudget/08.png" alt="Add expenditure form with category dropdown, description and amount" width="1080" height="1997" loading="lazy"></figure>
+      <article class="card">
+        <div class="card__bar"><span>SmartBudget</span><i aria-hidden="true">07</i></div>
+        <div class="card__body">
+          <h2 class="card__title">Log an expense</h2>
+          <p class="card__text">Choose a category, describe what you bought and enter the amount. Here it's a $7.24 dinner at a restaurant.</p>
+        </div>
+      </article>
+    </section>
+    <section class="slide" aria-label="Every dollar, listed">
+      <figure class="phone"><img src="/assets/images/smartbudget/07.png" alt="List of expenditures including dinner for $7.24, rent for $555.55 and a banana for $0.89" width="1080" height="1997" loading="lazy"></figure>
+      <article class="card">
+        <div class="card__bar"><span>SmartBudget</span><i aria-hidden="true">08</i></div>
+        <div class="card__body">
+          <h2 class="card__title">Every dollar, listed</h2>
+          <p class="card__text">Every expenditure shows its category, description and price: a restaurant dinner, the monthly rent, an actual banana. Hit Add Expenditure for the next one.</p>
+        </div>
+      </article>
+    </section>
+    <section class="slide" aria-label="Oops, delete">
+      <figure class="phone"><img src="/assets/images/smartbudget/09.png" alt="Expenditure list with a delete option on one row" width="1080" height="1997" loading="lazy"></figure>
+      <article class="card">
+        <div class="card__bar"><span>SmartBudget</span><i aria-hidden="true">09</i></div>
+        <div class="card__body">
+          <h2 class="card__title">Oops, delete</h2>
+          <p class="card__text">Made a mistake or bought a banana you'd rather forget? Open the menu on any row to delete it.</p>
+        </div>
+      </article>
+    </section>
+    <canvas class="water" id="water" aria-hidden="true"></canvas>
+    <p class="hint" aria-hidden="true">Scroll &darr;</p>
+  </div>
+</div>
+<script src="script.js" defer></script>
+</body>
+</html>
