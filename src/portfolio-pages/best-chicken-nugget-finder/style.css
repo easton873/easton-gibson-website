@@ -1,0 +1,73 @@
+/* Best Chicken Nugget Finder: one-off page. Black + lime, matching the app. */
+:root {
+  --lime: #1cff00;
+  --lime-dim: #0f9a00;
+  --black: #000;
+  --ink: #f4fff2;
+  --grey: #2f2f2f;
+  --display: "Fredoka", system-ui, sans-serif;
+  --body: "Nunito", system-ui, sans-serif;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--black); }
+body { color: var(--ink); font-family: var(--body); font-weight: 600; font-size: 1.2rem; line-height: 1.45; }
+
+.nug { position: relative; height: calc(var(--n) * 100vh); height: calc(var(--n) * 100svh); }
+.nug__stage { position: sticky; top: 0; height: 100vh; height: 100svh; overflow: hidden; }
+
+/* top bar */
+.hud { position: absolute; z-index: 1000; inset: 0 0 auto 0; display: flex; align-items: center; gap: 1.25rem; padding: 1rem 1.5rem; pointer-events: none; font-family: var(--display); font-weight: 700; }
+.hud > * { pointer-events: auto; }
+.hud__back, .hud__count { background: var(--lime); color: var(--black); padding: .45rem 1.1rem; border-radius: 999px; text-decoration: none; font-size: 1rem; margin: 0; }
+.hud__back:hover, .hud__back:focus-visible { background: var(--ink); outline: none; }
+.hud__track { position: relative; flex: 1; height: 14px; background: var(--grey); border-radius: 99px; }
+.hud__track span { position: absolute; inset: 0 auto 0 0; width: 0; background: var(--lime); border-radius: 99px; }
+.hud__track img { position: absolute; top: 50%; left: 0; width: 38px; height: 38px; translate: -50% -50%; filter: drop-shadow(0 2px 0 #000); }
+
+/* slides */
+.slide, .ring { position: absolute; inset: 0; }
+.ring { background: var(--lime); border-radius: 0; visibility: hidden; }
+.slide {
+  display: grid; grid-template-columns: auto minmax(0, 34rem); justify-content: center; align-items: center; gap: clamp(2rem, 7vw, 7rem);
+  padding: 5rem clamp(1.5rem, 5vw, 5rem) 2.5rem;
+  background: radial-gradient(60vmax 40vmax at 25% 50%, rgba(28,255,0,.14), transparent 70%), var(--black);
+}
+.slide:nth-of-type(even) { background: radial-gradient(60vmax 40vmax at 25% 50%, rgba(28,255,0,.14), transparent 70%), #0a0f09; }
+
+.phone { margin: 0; padding: 10px; background: #050505; border: 3px solid var(--lime); border-radius: 42px; box-shadow: 0 0 0 6px #000, 0 0 60px rgba(28,255,0,.35), 14px 18px 0 6px rgba(28,255,0,.18); }
+.phone img { display: block; height: min(calc(100vh - 9rem), 46rem); height: min(calc(100svh - 9rem), 46rem); width: auto; border-radius: 30px; background: #000; }
+
+.card { padding: 2rem 2.2rem 2.2rem; background: var(--grey); border-radius: 28px; border-left: 10px solid var(--lime); box-shadow: 10px 10px 0 var(--lime-dim); }
+.card__num { margin: 0 0 .4rem; font-family: var(--display); font-weight: 700; font-size: 1.1rem; color: var(--lime); letter-spacing: .12em; }
+.card__num::before { content: "#"; }
+.card__title { margin: 0 0 .9rem; font-family: var(--display); font-weight: 700; font-size: clamp(2rem, 4.2vw, 3.4rem); line-height: 1.05; color: var(--lime); }
+.card__text { margin: 0; font-size: clamp(1.05rem, 1.5vw, 1.3rem); }
+.card__tags { margin: 1.2rem 0 0; }
+.card__tags span { display: inline-block; font-family: var(--display); font-weight: 700; background: var(--lime); color: var(--black); padding: .3rem 1rem; border-radius: 99px; }
+
+/* raining food (transition) */
+.fx { position: absolute; inset: 0; z-index: 900; pointer-events: none; }
+.fx img { position: absolute; left: 0; top: 0; width: clamp(44px, 7vmin, 90px); height: auto; opacity: 0; will-change: transform, opacity; filter: drop-shadow(0 6px 0 rgba(0,0,0,.5)); }
+
+.hint { position: absolute; z-index: 1000; bottom: 1rem; left: 50%; translate: -50% 0; margin: 0; padding: .3rem 1rem; border-radius: 99px; background: var(--lime); color: var(--black); font-family: var(--display); font-weight: 700; transition: opacity .25s; animation: bob 1.2s ease-in-out infinite; }
+@keyframes bob { 50% { transform: translateY(-6px); } }
+
+.nug.enhanced .card { opacity: 0; transform: translateY(28px) rotate(1.5deg); transition: opacity .45s, transform .55s cubic-bezier(.2,1.4,.4,1); }
+.nug.enhanced .slide.is-active .card { opacity: 1; transform: none; }
+
+@media (max-width: 800px) {
+  .slide { grid-template-columns: 1fr; justify-items: center; align-content: center; gap: 1.2rem; padding-top: 4.5rem; padding-bottom: 1.5rem; }
+  .phone { padding: 6px; border-radius: 28px; }
+  .phone img { height: 40vh; height: 40svh; border-radius: 22px; }
+  .card { padding: 1.1rem 1.3rem 1.3rem; border-radius: 20px; box-shadow: 6px 6px 0 var(--lime-dim); }
+  .card__title { font-size: 1.9rem; }
+  .card__text { font-size: 1rem; }
+}
+
+/* reduced motion / no JS: stacked sections */
+.nug:not(.enhanced) { height: auto; }
+.nug:not(.enhanced) .nug__stage { position: static; height: auto; overflow: visible; }
+.nug:not(.enhanced) .slide { position: relative; min-height: 100vh; }
+.nug:not(.enhanced) .hud { position: sticky; top: 0; }
+.nug:not(.enhanced) .ring, .nug:not(.enhanced) .fx, .nug:not(.enhanced) .hint { display: none; }
+@media (prefers-reduced-motion: reduce) { .hint { animation: none; } }

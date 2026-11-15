@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Best Chicken Nugget Finder · Easton Gibson</title>
+<meta name="description" content="Best Chicken Nugget Finder: a Flutter app for rating and ranking chicken nuggets.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@600;800&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="nug" id="nug" style="--n: 7">
+  <div class="nug__stage">
+    <header class="hud">
+      <a class="hud__back" href="/portfolio/">&larr; Back</a>
+      <div class="hud__track" aria-hidden="true"><span id="bar"></span><img id="rider" src="/assets/images/food/chicken.png" alt=""></div>
+      <p class="hud__count" aria-hidden="true"><span id="cur">01</span> / 07</p>
+    </header>
+    <div class="ring" aria-hidden="true"></div>
+    <section class="slide" aria-label="Meet the chicken">
+      <figure class="phone"><img src="/assets/images/chicken-nugget-finder/01.png" alt="Lime green chicken on a black splash screen" width="693" height="1500"></figure>
+      <div class="card">
+        <p class="card__num">01</p>
+        <h2 class="card__title">Meet the chicken</h2>
+        <p class="card__text">Best Chicken Nugget Finder opens on a glowing lime chicken. It's a Flutter app built to settle the only debate that really matters: whose nuggets are the best?</p>
+        <p class="card__tags"><span>Flutter</span></p>
+      </div>
+    </section>
+    <div class="ring" aria-hidden="true"></div>
+    <section class="slide" aria-label="Two big buttons">
+      <figure class="phone"><img src="/assets/images/chicken-nugget-finder/02.png" alt="Home screen with Edit criteria and Restaurants buttons" width="693" height="1500"></figure>
+      <div class="card">
+        <p class="card__num">02</p>
+        <h2 class="card__title">Two big buttons</h2>
+        <p class="card__text">The home screen keeps it simple: edit what you judge nuggets on, or jump straight to the restaurants.</p>
+        
+      </div>
+    </section>
+    <div class="ring" aria-hidden="true"></div>
+    <section class="slide" aria-label="Your rules">
+      <figure class="phone"><img src="/assets/images/chicken-nugget-finder/05.png" alt="List of rating criteria with an edit and delete menu" width="693" height="1500" loading="lazy"></figure>
+      <div class="card">
+        <p class="card__num">03</p>
+        <h2 class="card__title">Your rules</h2>
+        <p class="card__text">Smell, cool, temp, crispiness, colour. Criteria are yours to define, and each row has a menu to edit or delete it.</p>
+        
+      </div>
+    </section>
+    <div class="ring" aria-hidden="true"></div>
+    <section class="slide" aria-label="Weighted scoring">
+      <figure class="phone"><img src="/assets/images/chicken-nugget-finder/03.png" alt="Create Criteria screen with a name field and a weight slider" width="693" height="1500" loading="lazy"></figure>
+      <div class="card">
+        <p class="card__num">04</p>
+        <h2 class="card__title">Weighted scoring</h2>
+        <p class="card__text">Name a criterion and set its weight, meaning how much it matters compared with the others. Crispiness can count for more than colour.</p>
+        
+      </div>
+    </section>
+    <div class="ring" aria-hidden="true"></div>
+    <section class="slide" aria-label="The leaderboard">
+      <figure class="phone"><img src="/assets/images/chicken-nugget-finder/06.png" alt="Restaurant list with ratings of 3.9, 3.7 and 3.8" width="693" height="1500" loading="lazy"></figure>
+      <div class="card">
+        <p class="card__num">05</p>
+        <h2 class="card__title">The leaderboard</h2>
+        <p class="card__text">Every restaurant gets a score out of five. McDonald's, Subway and Chic Fil a are all in the running, each with a Rate button.</p>
+        
+      </div>
+    </section>
+    <div class="ring" aria-hidden="true"></div>
+    <section class="slide" aria-label="Rate and calculate">
+      <figure class="phone"><img src="/assets/images/chicken-nugget-finder/04.png" alt="Rating screen with dropdowns per criterion and a calculated score of 3.8" width="693" height="1500" loading="lazy"></figure>
+      <div class="card">
+        <p class="card__num">06</p>
+        <h2 class="card__title">Rate and calculate</h2>
+        <p class="card__text">Pick a score for each criterion, hit Calculate, and the weighted average appears. Chic Fil a lands at 3.8.</p>
+        
+      </div>
+    </section>
+    <div class="ring" aria-hidden="true"></div>
+    <section class="slide" aria-label="Everyone's a critic">
+      <figure class="phone"><img src="/assets/images/chicken-nugget-finder/07.png" alt="User drawer showing a selected user and an Add New User option" width="693" height="1500" loading="lazy"></figure>
+      <div class="card">
+        <p class="card__num">07</p>
+        <h2 class="card__title">Everyone's a critic</h2>
+        <p class="card__text">Switch between tasters from the side drawer, so every person keeps their own ratings and their own opinion on nuggets.</p>
+        
+      </div>
+    </section>
+    <div class="fx" id="fx" aria-hidden="true">
+      <img src="/assets/images/food/chicken.png" alt="">
+      <img src="/assets/images/food/chocolate-malt.png" alt="">
+      <img src="/assets/images/food/fries.png" alt="">
+      <img src="/assets/images/food/hamburger.png" alt="">
+      <img src="/assets/images/food/hotdog.png" alt="">
+      <img src="/assets/images/food/nacho.png" alt="">
+      <img src="/assets/images/food/pizza.png" alt="">
+      <img src="/assets/images/food/salad.png" alt="">
+      <img src="/assets/images/food/sandwich.png" alt="">
+      <img src="/assets/images/food/soup.png" alt="">
+      <img src="/assets/images/food/sundae.png" alt="">
+      <img src="/assets/images/food/taco.png" alt="">
+    </div>
+    <p class="hint" aria-hidden="true">Scroll &darr;</p>
+  </div>
+</div>
+<script src="script.js" defer></script>
+</body>
+</html>

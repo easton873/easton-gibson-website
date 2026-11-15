@@ -16,6 +16,12 @@ permalink: /portfolio/index.html
       <p>An online multiplayer wizard RPG with 20+ spells, built on Node.js and socket.io.</p>
       <ul class="tags"><li>Node.js</li><li>socket.io</li></ul>
     </a>
+    <a class="card card--tall" href="/portfolio/best-chicken-nugget-finder/" style="--h: 120">
+      <span class="card__year">App · Mobile developer</span>
+      <h3>Best Chicken Nugget Finder</h3>
+      <p>A Flutter app for rating and ranking chicken nuggets with your own weighted criteria.</p>
+      <ul class="tags"><li>Flutter</li></ul>
+    </a>
     {% for p in collections.projects %}
     <a class="card card--tall" href="{{ p.url }}" style="--h: {{ p.data.hue }}">
       <span class="card__year">{{ p.data.year }} · {{ p.data.role }}</span>
