@@ -80,6 +80,14 @@ h1 em { font-style: normal; color: var(--yellow); }
 .card__year { font-family: var(--mono); font-size: .75rem; opacity: .75; text-transform: uppercase; letter-spacing: .1em; }
 .card--tall { min-height: 280px; }
 
+/* Portfolio cards: screenshot background, dimmed so text stays readable */
+.card--img { position: relative; isolation: isolate; overflow: hidden; background: #111;
+  --fg: #fff; --ac: var(--yellow); }
+.card__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: -2; transition: transform .5s; }
+.card--img::before { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, rgb(0 0 0 / .55), rgb(0 0 0 / .85)); transition: opacity .3s; }
+.card--img:hover .card__bg { transform: scale(1.06); }
+.card--img:hover::before { opacity: .85; }
+
 .tags { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem; padding: 0; margin: auto 0 0; }
 .tags li { font-family: var(--mono); font-size: .72rem; padding: .2rem .55rem; border: 1px solid currentColor; border-radius: 99px; opacity: .85; }
 .tags--solid { margin: 0 0 2rem; }
@@ -119,6 +127,20 @@ h1 em { font-style: normal; color: var(--yellow); }
 
 /* ---------- About: scroll-driven stage ---------- */
 .theme-about { background: #140806; }
+
+/* Resume: plain black */
+.theme-resume { background: #000; color: #f1eefb; }
+.theme-resume::before { display: none; }
+
+/* Portfolio: dark, with a fixed SVG backdrop */
+.theme-portfolio { background: #0b0916 url("/assets/images/portfolio-bg.svg") center / cover fixed no-repeat; color: #f1eefb; }
+.theme-portfolio::before { display: none; }
+.theme-portfolio .block-plain { padding: 4.5rem var(--gutter); }
+.theme-portfolio .page-head { padding-bottom: 1rem; }
+.theme-portfolio h1 em { color: oklch(0.82 0.13 195); }
+.theme-portfolio .nav__brand span, .theme-portfolio .card--img { --ac: oklch(0.82 0.13 195); }
+.theme-portfolio .nav nav a:hover, .theme-portfolio .nav nav a[aria-current] { border-color: oklch(0.82 0.13 195); }
+.theme-portfolio .card { border-bottom-color: oklch(0.82 0.13 195); box-shadow: 0 8px 30px rgb(0 0 0 / .35); }
 .theme-about::before { display: none; } /* full-screen multiply-blended noise is too costly to repaint while scrolling */
 .theme-about .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; color: #fff; text-shadow: 0 1px 12px rgb(0 0 0 / .5); }
 .about { --ink: #fff; }
@@ -130,14 +152,14 @@ h1 em { font-style: normal; color: var(--yellow); }
 .slide__bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2; }
 .slide__tint { position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, oklch(0.2 0.06 var(--h) / .92), oklch(0.2 0.06 var(--h) / .35) 70%); }
 .slide__inner { display: grid; grid-template-columns: 1.1fr .9fr; gap: 4vw; align-items: center; padding: 8rem var(--gutter) 6rem; }
-.slide__kicker { font-family: var(--mono); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ac); margin: 0 0 1rem; }
-.slide__kicker span { opacity: .6; margin-right: .6rem; }
 .slide__title { font-size: clamp(2.6rem, 7vw, 6rem); font-weight: 900; line-height: .98; color: var(--fg); }
 .slide__text { font-size: clamp(1.05rem, 1.6vw, 1.3rem); max-width: 34ch; color: oklch(0.88 0.04 var(--h)); }
+.slide__text a { color: var(--ac); text-decoration: underline; text-underline-offset: .2em; }
 .slide .btn { background: var(--ac); color: oklch(0.2 0.06 var(--h)); margin-top: 1rem; }
 .slide__card { margin: 0; border-radius: 10px; overflow: hidden; aspect-ratio: 4/5; max-height: 68vh; justify-self: end; width: min(100%, 420px);
   border-bottom: 8px solid var(--ac); box-shadow: 0 30px 80px rgb(0 0 0 / .45); }
 .slide__card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.slide__card--wide { aspect-ratio: 1280 / 668; max-height: none; width: 100%; border-radius: 12px; }
 
 /* Enhanced (JS) mode: pinned stage, slides stacked and revealed by clip-path */
 .about.enhanced { height: calc(var(--n) * 100vh); position: relative; }
@@ -154,19 +176,15 @@ h1 em { font-style: normal; color: var(--yellow); }
 .about.enhanced .slide__card { will-change: transform; }
 
 /* text reveals with a stagger when a slide becomes active */
-.about.enhanced .slide__kicker, .about.enhanced .slide__title, .about.enhanced .slide__text, .about.enhanced .slide__cta {
+.about.enhanced .slide__title, .about.enhanced .slide__text, .about.enhanced .slide__cta {
   opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .7s cubic-bezier(.2,.7,.2,1);
 }
-.about.enhanced .slide.is-active .slide__kicker { opacity: 1; transform: none; transition-delay: .05s; }
 .about.enhanced .slide.is-active .slide__title  { opacity: 1; transform: none; transition-delay: .15s; }
 .about.enhanced .slide.is-active .slide__text   { opacity: 1; transform: none; transition-delay: .28s; }
 .about.enhanced .slide.is-active .slide__cta    { opacity: 1; transform: none; transition-delay: .4s; }
 
 /* progress dots + scroll hint */
 .about__dots { display: none; }
-.about.enhanced .about__dots { display: flex; flex-direction: column; gap: .7rem; list-style: none; margin: 0; padding: 0; position: absolute; right: 1.5rem; top: 50%; transform: translateY(-50%); z-index: 20; }
-.about__dots li { width: 10px; height: 10px; border-radius: 50%; border: 2px solid #fff; opacity: .6; transition: all .3s; }
-.about__dots li.on { background: #fff; opacity: 1; transform: scale(1.4); }
 .about__hint { display: none; }
 .about.enhanced .about__hint { display: block; position: absolute; left: 50%; bottom: 1.5rem; transform: translateX(-50%); z-index: 20; font-family: var(--mono); font-size: .8rem; letter-spacing: .14em; text-transform: uppercase; color: #fff; margin: 0; transition: opacity .4s; }
 .about__hint span { display: inline-block; animation: bob 1.4s ease-in-out infinite; }
@@ -176,5 +194,9 @@ h1 em { font-style: normal; color: var(--yellow); }
   .slide__inner { grid-template-columns: 1fr; padding-top: 6rem; gap: 1.5rem; }
   .slide__card { justify-self: start; aspect-ratio: 16/10; max-height: 28vh; width: 100%; order: -1; }
   .slide__tint { background: oklch(0.2 0.06 var(--h) / .78); }
-  .about__dots { right: .6rem !important; }
 }
+
+/* ---------- Resume: embedded Google Doc ---------- */
+.resume-embed { max-width: 960px; margin: 0 auto; padding: 7rem var(--gutter) 3rem; }
+.resume-embed iframe { display: block; width: 100%; height: 85vh; min-height: 600px; border: 0; border-radius: var(--radius); background: #fff; }
+.resume-embed p { text-align: right; margin-top: 1rem; }

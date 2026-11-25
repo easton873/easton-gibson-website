@@ -2,63 +2,63 @@
 layout: layouts/base.njk
 title: Portfolio
 permalink: /portfolio/index.html
+bodyClass: theme-portfolio
 ---
-<section class="block-red page-head">
+<section class="block-plain page-head">
   <p class="eyebrow">Portfolio</p>
-  <h1>Work, each in its <em>own colour.</em></h1>
+  <h1>Things I've <em>built.</em></h1>
 </section>
-<section class="block-yellow">
+<section class="block-plain">
   <div class="grid grid--tall">
     {# Hand-built page (src/portfolio-pages/multiplayer-trevor), not part of the projects collection #}
-    <a class="card card--tall" href="/portfolio/multiplayer-trevor/" style="--h: 270">
+    <a class="card card--tall card--img" href="/portfolio/multiplayer-trevor/">
+      <img class="card__bg" src="/assets/images/multiplayer-trevor/01.png" alt="" loading="lazy">
       <span class="card__year">Game · Full-stack developer</span>
       <h3>Multiplayer Trevor</h3>
       <p>An online multiplayer wizard RPG with 20+ spells, built on Node.js and socket.io.</p>
       <ul class="tags"><li>Node.js</li><li>socket.io</li></ul>
     </a>
-    <a class="card card--tall" href="/portfolio/best-chicken-nugget-finder/" style="--h: 120">
+    <a class="card card--tall card--img" href="/portfolio/best-chicken-nugget-finder/">
+      <img class="card__bg" src="/assets/images/chicken-nugget-finder/01.png" alt="" loading="lazy">
       <span class="card__year">App · Mobile developer</span>
       <h3>Best Chicken Nugget Finder</h3>
       <p>A Flutter app for rating and ranking chicken nuggets with your own weighted criteria.</p>
       <ul class="tags"><li>Flutter</li></ul>
     </a>
-    <a class="card card--tall" href="/portfolio/active-miner/" style="--h: 0">
+    <a class="card card--tall card--img" href="/portfolio/active-miner/">
+      <img class="card__bg" src="/assets/images/active-miner/08.png" alt="" loading="lazy">
       <span class="card__year">Game · Developer</span>
       <h3>Active Miner</h3>
       <p>A mining game: dig, sell ore, level up and unlock skins.</p>
       <ul class="tags"><li>Game</li></ul>
     </a>
-    <a class="card card--tall" href="/portfolio/what-do-i-wear/" style="--h: 175">
+    <a class="card card--tall card--img" href="/portfolio/what-do-i-wear/">
+      <img class="card__bg" src="/assets/images/what-do-i-wear/10.png" alt="" loading="lazy">
       <span class="card__year">App · Android developer</span>
       <h3>What Do I Wear</h3>
       <p>An Android app that picks an outfit from your wardrobe and tells you when it's laundry time.</p>
       <ul class="tags"><li>Android</li></ul>
     </a>
-    <a class="card card--tall" href="/portfolio/smartbudget/" style="--h: 265">
+    <a class="card card--tall card--img" href="/portfolio/smartbudget/">
+      <img class="card__bg" src="/assets/images/smartbudget/01.png" alt="" loading="lazy">
       <span class="card__year">App · Android developer</span>
       <h3>SmartBudget</h3>
       <p>An Android app for tracking who spent what, sorted by category and date.</p>
       <ul class="tags"><li>Android</li></ul>
     </a>
-    <a class="card card--tall" href="/portfolio/command-line-smartbudget/" style="--h: 0">
+    <a class="card card--tall card--img" href="/portfolio/command-line-smartbudget/">
+      <img class="card__bg" src="/assets/images/command-line-smartbudget/01.png" alt="" loading="lazy">
       <span class="card__year">Program · C++ developer</span>
       <h3>Command Line SmartBudget</h3>
       <p>A budgeting program you drive entirely from the terminal, with stats, reports and plain-text saves.</p>
       <ul class="tags"><li>C++</li><li>CLI</li></ul>
     </a>
-    <a class="card card--tall" href="/portfolio/linear-algebra-bf/" style="--h: 220">
+    <a class="card card--tall card--img" href="/portfolio/linear-algebra-bf/">
+      <img class="card__bg" src="/assets/images/linear-algebra-bf/01.png" alt="" loading="lazy">
       <span class="card__year">Program · C++ developer</span>
       <h3>Linear Algebra BF</h3>
       <p>A command-line matrix calculator: add, reduce, invert, export and import.</p>
       <ul class="tags"><li>C++</li><li>CLI</li></ul>
     </a>
-    {% for p in collections.projects %}
-    <a class="card card--tall" href="{{ p.url }}" style="--h: {{ p.data.hue }}">
-      <span class="card__year">{{ p.data.year }} · {{ p.data.role }}</span>
-      <h3>{{ p.data.title }}</h3>
-      <p>{{ p.data.summary }}</p>
-      <ul class="tags">{% for t in p.data.tags %}<li>{{ t }}</li>{% endfor %}</ul>
-    </a>
-    {% endfor %}
   </div>
 </section>

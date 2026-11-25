@@ -1,24 +1,23 @@
 ---
 layout: layouts/base.njk
-title: About
+title: Home
 bodyClass: theme-about
-permalink: /about/index.html
+permalink: /index.html
 ---
 <div class="about" id="about" style="--n: {{ about | length }}">
   <div class="about__stage">
     {% for s in about %}
     <section class="slide" data-transition="{{ s.transition }}" style="--h: {{ s.hue }}" aria-label="{{ s.kicker }}">
-      <img class="slide__bg" src="{{ s.image }}" alt="" aria-hidden="true">
+      <img class="slide__bg" src="{{ s.image }}" alt="" aria-hidden="true"{% if s.focus %} style="object-position: {{ s.focus }}"{% endif %}>
       <div class="slide__tint"></div>
       <div class="slide__dim"></div>
       <div class="slide__inner">
         <div class="slide__copy">
-          <p class="slide__kicker"><span>0{{ loop.index }}</span> {{ s.kicker }}</p>
-          <h2 class="slide__title">{{ s.title }}</h2>
-          <p class="slide__text">{{ s.text }}</p>
-          {% if s.cta %}<a class="btn slide__cta" href="{{ s.cta.url }}">{{ s.cta.label }} →</a>{% endif %}
+          <h2 class="slide__title">{% if s.since %}{{ s.title | replace("{days}", '<span data-days-since="' + s.since + '">' + (s.since | daysSince) + '</span>') | safe }}{% else %}{{ s.title }}{% endif %}</h2>
+          <p class="slide__text">{{ s.text | safe }}</p>
+          {% for c in (s.ctas or ([s.cta] if s.cta else [])) %}<a class="btn slide__cta" href="{{ c.url }}">{{ c.label }} →</a> {% endfor %}
         </div>
-        <figure class="slide__card"><img src="{{ s.image }}" alt="{{ s.alt }}"></figure>
+        <figure class="slide__card{% if s.wide %} slide__card--wide{% endif %}"><img src="{{ s.image }}" alt="{{ s.alt }}"></figure>
       </div>
     </section>
     {% endfor %}
@@ -27,3 +26,9 @@ permalink: /about/index.html
   </div>
 </div>
 <script src="/js/about.js" defer></script>
+<script>
+  // keep the day count current if the page was built earlier
+  document.querySelectorAll("[data-days-since]").forEach((el) => {
+    el.textContent = Math.floor((Date.now() - new Date(el.dataset.daysSince + "T00:00:00")) / 864e5);
+  });
+</script>

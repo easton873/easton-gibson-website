@@ -5,10 +5,9 @@ export default function (eleventyConfig) {
   // Hand-built, one-off project pages (own HTML/CSS/JS, no shared layout)
   eleventyConfig.addPassthroughCopy({ "src/portfolio-pages": "portfolio" });
 
-  // All portfolio projects, newest first (sorted by `order`, then date)
-  eleventyConfig.addCollection("projects", (api) =>
-    api.getFilteredByGlob("src/projects/*.md").sort((a, b) => (a.data.order ?? 99) - (b.data.order ?? 99))
-  );
+  // Whole days elapsed since an ISO date, e.g. "2023-01-03"
+  eleventyConfig.addFilter("daysSince", (iso) => Math.floor((Date.now() - new Date(iso + "T00:00:00").getTime()) / 864e5));
+
 
   return {
     dir: { input: "src", output: "_site", includes: "_includes" },
