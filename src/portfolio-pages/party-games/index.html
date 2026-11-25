@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Party Games · Easton Gibson</title>
+<meta name="description" content="Party Games: a small collection of browser party games I built, playable with friends with phones.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <a class="back" href="/portfolio/">&larr; Portfolio</a>
+</header>
+<main class="wrap">
+  <h1>Party <em>Games</em></h1>
+  <p class="lede">Games I built with Claude. A host casts to a main screen for everybody to see and players connect with their phones.</p>
+
+  <div class="demo">
+    <div class="demo__left">
+      <div class="window">
+        <div class="window__bar" aria-hidden="true"><i></i><i></i><i></i><span>partygames.eastongibson.com</span></div>
+        <iframe src="https://partygames.eastongibson.com/" title="Party Games site" loading="lazy"></iframe>
+      </div>
+      <p class="visit"><a href="https://partygames.eastongibson.com/" target="_blank" rel="noopener">Visit partygames.eastongibson.com &nearr;</a></p>
+    </div>
+
+    <section class="show" id="show" aria-roledescription="carousel" aria-label="The games">
+      <div class="slides">
+        <article class="slide is-active" aria-label="1 of 4">
+          <h2>Multiplayer Eric</h2>
+          <p>Try to trick your friends by "proving" how much you know about random words in the dictionary, predicting the plots of movies, and much more.</p>
+        </article>
+        <article class="slide" aria-label="2 of 4">
+          <h2>Matchy Finderoo</h2>
+          <p>Find your partner and find all the other partnerships. Communicate wisely.</p>
+        </article>
+        <article class="slide" aria-label="3 of 4">
+          <h2>The Name Game</h2>
+          <p>Enter a name that nobody would think you entered. Be the last person found and win.</p>
+        </article>
+        <article class="slide" aria-label="4 of 4">
+          <h2>Team Button Clicker</h2>
+          <p>Ever played an idle clicker? Well now you can click on the button with a team.</p>
+        </article>
+      </div>
+      <div class="controls">
+        <button type="button" id="prev" aria-label="Previous game">&larr;</button>
+        <div class="dots" id="dots"></div>
+        <button type="button" id="next" aria-label="Next game">&rarr;</button>
+      </div>
+    </section>
+  </div>
+</main>
+<script src="script.js" defer></script>
+</body>
+</html>

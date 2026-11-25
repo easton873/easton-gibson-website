@@ -1,0 +1,32 @@
+/* NCAA Football Ad Detector: turf stripes, yard-line white and leather-brown accents. */
+:root { --felt: #14502a; --felt-hi: #1b6335; --ink: #ffffff; --dim: #d3e6d8; --gold: #f4c542; --leather: #8b4513; --head: "Oswald", "Arial Narrow", Impact, sans-serif; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { min-height: 100vh; background:
+  linear-gradient(rgb(0 0 0 / .25), rgb(0 0 0 / 0) 30%, rgb(0 0 0 / .35)) fixed,
+  repeating-linear-gradient(90deg, var(--felt) 0 80px, var(--felt-hi) 80px 160px) fixed; color: var(--ink); font: 1.0625rem/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+.top { padding: 1.25rem clamp(1rem, 4vw, 3rem); border-bottom: 4px solid #fff; box-shadow: 0 6px 0 rgb(255 255 255 / .25); }
+.back { color: var(--ink); text-decoration: none; padding: .45rem .8rem; border: 1px solid rgb(255 255 255 / .3); border-radius: 999px; font-size: .9rem; }
+.back:hover, .back:focus-visible { background: var(--gold); color: var(--felt); border-color: var(--gold); outline: none; }
+.wrap { max-width: 1400px; margin: 0 auto; padding: 1rem clamp(1rem, 4vw, 3rem) 4rem; }
+h1 { margin: 0; font-family: var(--head); text-transform: uppercase; letter-spacing: .02em; font-size: clamp(2.2rem, 5vw, 3.6rem); line-height: 1.1; }
+h1 em { color: var(--gold); font-style: normal; }
+.lede { margin: .6rem 0 2rem; font-weight: 500; max-width: 40rem; color: var(--dim); }
+
+.demo { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: clamp(1.25rem, 3vw, 3rem); align-items: start; }
+.window { border-radius: 8px; border: 4px solid #fff; overflow: hidden; background: #111; box-shadow: 0 20px 50px rgb(0 0 0 / .5); }
+.window__bar { display: flex; align-items: center; gap: .4rem; padding: .55rem .8rem; background: var(--leather); font-size: .8rem; color: #fff; }
+.window__bar i { width: 10px; height: 10px; border-radius: 50%; background: #666; }
+.window__bar i:nth-child(1) { background: #ff5f57; } .window__bar i:nth-child(2) { background: #febc2e; } .window__bar i:nth-child(3) { background: #28c840; }
+.window__bar span { margin-left: .6rem; }
+.window iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; background: #fff; }
+.visit { margin: 1rem 0 0; text-align: center; }
+.visit a { color: var(--gold); font-weight: 600; text-underline-offset: 4px; }
+
+
+
+.about { align-self: center; padding: 1.5rem; border-radius: 8px; background: #0b1f14; border: 4px solid #fff; border-top: 10px solid var(--gold); box-shadow: 8px 8px 0 rgb(0 0 0 / .4); }
+.about h2 { margin: 0 0 .8rem; font-family: var(--head); text-transform: uppercase; letter-spacing: .04em; font-size: 1.8rem; line-height: 1.15; color: var(--gold); }
+.about p { margin: 0 0 1rem; color: var(--dim); }
+.about .note { margin: 1.25rem 0 0; padding-left: .9rem; border-left: 4px solid var(--gold); font-size: .95rem; }
+@media (max-width: 900px) { .demo { grid-template-columns: 1fr; } }
