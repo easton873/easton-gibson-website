@@ -33,6 +33,9 @@ h1 em { color: var(--gold); font-style: normal; }
 .dots { display: flex; gap: .5rem; }
 .dots button { width: .7rem; height: .7rem; padding: 0; border-radius: 50%; border: 0; background: rgb(255 255 255 / .3); }
 .dots button[aria-current="true"] { background: var(--gold); }
+.cicd { margin: 1.25rem 0 0; padding-top: 1rem; border-top: 1px solid rgb(255 255 255 / .15); font-size: .9rem; color: var(--dim); }
+.cicd strong { color: var(--gold); }
+.cicd code { font-size: .9em; background: rgb(255 255 255 / .1); padding: .1em .35em; border-radius: 3px; }
 
 @media (max-width: 900px) { .demo { grid-template-columns: 1fr; } .slide h2 { font-size: 1.4rem; } }
 @media (prefers-reduced-motion: reduce) { .slide { transition: none; } }

@@ -1,0 +1,29 @@
+/* This Website: the home page portrait as a full-page backdrop, with neutral dark/white UI. */
+:root { --ink: #111; --fg: #fff; --dim: rgb(255 255 255 / .8); --font: "Archivo", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { min-height: 100vh; background: linear-gradient(rgb(0 0 0 / .55), rgb(0 0 0 / .7)), url("/assets/images/profile.jpg") center / cover fixed no-repeat #111; color: var(--fg); font: 1.0625rem/1.55 var(--font); }
+.top { padding: 1.25rem clamp(1rem, 4vw, 3rem); }
+.back { color: var(--fg); text-decoration: none; padding: .45rem .8rem; border: 2px solid var(--fg); border-radius: 4px; font-size: .9rem; font-weight: 600; }
+.back:hover, .back:focus-visible { background: var(--fg); color: var(--ink); outline: none; }
+.wrap { max-width: 1400px; margin: 0 auto; padding: 1rem clamp(1rem, 4vw, 3rem) 4rem; }
+h1 { margin: 0; font-weight: 900; font-size: clamp(2.4rem, 5.5vw, 4rem); line-height: 1.05; }
+h1 em { font-style: normal; }
+.lede { margin: .6rem 0 2rem; max-width: 40rem; color: var(--dim); }
+
+.demo { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: clamp(1.25rem, 3vw, 3rem); align-items: start; }
+.window { border-radius: 6px; overflow: hidden; background: #111; border: 1px solid rgb(255 255 255 / .35); box-shadow: 0 20px 50px rgb(0 0 0 / .55); }
+.window__bar { display: flex; align-items: center; gap: .4rem; padding: .55rem .8rem; background: #1c1c1c; font: .8rem var(--mono); color: var(--dim); }
+.window__bar i { width: 10px; height: 10px; border-radius: 50%; background: #666; }
+.window__bar span { margin-left: .6rem; }
+.window iframe { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; background: #222; }
+.visit { margin: 1.1rem 0 0; text-align: center; }
+.visit a, .repo a { color: var(--fg); font-weight: 800; text-underline-offset: 4px; }
+
+.about { align-self: center; padding: 1.5rem; border-radius: 6px; background: rgb(0 0 0 / .55); backdrop-filter: blur(6px); border: 1px solid rgb(255 255 255 / .3); }
+.about h2 { margin: 0 0 .8rem; font-weight: 900; font-size: 1.7rem; line-height: 1.15; }
+.about p { margin: 0 0 1rem; color: var(--dim); }
+.about code { font: .9em var(--mono); background: rgb(255 255 255 / .15); color: var(--fg); padding: .1em .35em; border-radius: 3px; }
+.about .repo { margin: 1.25rem 0 0; }
+
+@media (max-width: 900px) { .demo { grid-template-columns: 1fr; } }
