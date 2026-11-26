@@ -1,0 +1,28 @@
+/* Button Clicker: dark neutral UI, same layout as the This Website page. */
+:root { --ink: #111; --fg: #fff; --dim: rgb(255 255 255 / .8); --font: "Archivo", system-ui, sans-serif; --mono: "JetBrains Mono", ui-monospace, monospace; }
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { min-height: 100vh; background: radial-gradient(ellipse at top, #2a2a2e, #111 70%) fixed; color: var(--fg); font: 1.0625rem/1.55 var(--font); }
+.top { padding: 1.25rem clamp(1rem, 4vw, 3rem); }
+.back { color: var(--fg); text-decoration: none; padding: .45rem .8rem; border: 2px solid var(--fg); border-radius: 4px; font-size: .9rem; font-weight: 600; }
+.back:hover, .back:focus-visible { background: var(--fg); color: var(--ink); outline: none; }
+.wrap { max-width: 1400px; margin: 0 auto; padding: 1rem clamp(1rem, 4vw, 3rem) 4rem; }
+h1 { margin: 0; font-weight: 900; font-size: clamp(2.4rem, 5.5vw, 4rem); line-height: 1.05; }
+h1 em { font-style: normal; }
+.lede { margin: .6rem 0 2rem; max-width: 40rem; color: var(--dim); }
+
+.demo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(1.25rem, 3vw, 3rem); align-items: start; }
+/* portrait phone */
+.phone { position: relative; width: min(100%, 340px); margin: 0 auto; padding: 14px; border-radius: 44px; background: #0a0a0a; border: 2px solid #3a3a3a; box-shadow: 0 20px 50px rgb(0 0 0 / .55); }
+.phone::before { content: ""; position: absolute; top: 20px; left: 50%; translate: -50% 0; width: 84px; height: 18px; border-radius: 12px; background: #0a0a0a; z-index: 1; }
+.phone iframe { display: block; width: 100%; aspect-ratio: 9 / 19; border: 0; border-radius: 32px; background: #fff; }
+.visit { margin: 1.1rem 0 0; text-align: center; }
+.visit a, .repo a { color: var(--fg); font-weight: 800; text-underline-offset: 4px; }
+
+.about { align-self: center; padding: 1.5rem; border-radius: 6px; background: rgb(0 0 0 / .55); backdrop-filter: blur(6px); border: 1px solid rgb(255 255 255 / .3); }
+.about h2 { margin: 0 0 .8rem; font-weight: 900; font-size: 1.7rem; line-height: 1.15; }
+.about p { margin: 0 0 1rem; color: var(--dim); }
+.about code { font: .9em var(--mono); background: rgb(255 255 255 / .15); color: var(--fg); padding: .1em .35em; border-radius: 3px; }
+.about .repo { margin: 1.25rem 0 0; }
+
+@media (max-width: 900px) { .demo { grid-template-columns: 1fr; } }
