@@ -184,3 +184,9 @@ h1 em { font-style: normal; color: var(--yellow); }
   .slide__card { justify-self: start; aspect-ratio: 16/10; max-height: 28vh; width: 100%; order: -1; }
   .slide__tint { background: oklch(0.2 0.06 var(--h) / .78); }
 }
+
+/* ---------- Resume page: nav on top, embedded resume site fills the rest ---------- */
+.theme-resume { display: flex; flex-direction: column; height: 100vh; height: 100dvh; overflow: hidden; }
+.theme-resume::before, .theme-resume .footer { display: none; }
+.theme-resume main { flex: 1; min-height: 0; }
+.resume-frame { display: block; width: 100%; height: 100%; border: 0; background: #fff; }
