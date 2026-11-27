@@ -122,13 +122,13 @@ h1 em { font-style: normal; color: var(--yellow); }
 .theme-about { background: #140806; }
 
 /* Portfolio: dark, with a fixed SVG backdrop */
-.theme-portfolio { background: #0b0916 url("/assets/images/portfolio-bg.svg") center / cover fixed no-repeat; color: #f1eefb; }
-.theme-portfolio::before { display: none; }
+.theme-portfolio, .theme-resume { background: #0b0916 url("/assets/images/portfolio-bg.svg") center / cover fixed no-repeat; color: #f1eefb; }
+.theme-portfolio::before, .theme-resume::before { display: none; }
 .theme-portfolio .block-plain { padding: 4.5rem var(--gutter); }
 .theme-portfolio .page-head { padding-bottom: 1rem; }
 .theme-portfolio h1 em { color: oklch(0.82 0.13 195); }
-.theme-portfolio .nav__brand span, .theme-portfolio .card--img { --ac: oklch(0.82 0.13 195); }
-.theme-portfolio .nav nav a:hover, .theme-portfolio .nav nav a[aria-current] { border-color: oklch(0.82 0.13 195); }
+.theme-portfolio .nav__brand span, .theme-resume .nav__brand span, .theme-portfolio .card--img { --ac: oklch(0.82 0.13 195); }
+.theme-portfolio .nav nav a:hover, .theme-portfolio .nav nav a[aria-current], .theme-resume .nav nav a:hover, .theme-resume .nav nav a[aria-current] { border-color: oklch(0.82 0.13 195); }
 .theme-portfolio .card { border-bottom-color: oklch(0.82 0.13 195); box-shadow: 0 8px 30px rgb(0 0 0 / .35); }
 .theme-about::before { display: none; } /* full-screen multiply-blended noise is too costly to repaint while scrolling */
 .theme-about .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; color: #fff; text-shadow: 0 1px 12px rgb(0 0 0 / .5); }
@@ -187,6 +187,6 @@ h1 em { font-style: normal; color: var(--yellow); }
 
 /* ---------- Resume page: nav on top, embedded resume site fills the rest ---------- */
 .theme-resume { display: flex; flex-direction: column; height: 100vh; height: 100dvh; overflow: hidden; }
-.theme-resume::before, .theme-resume .footer { display: none; }
+.theme-resume .footer { display: none; }
 .theme-resume main { flex: 1; min-height: 0; }
 .resume-frame { display: block; width: 100%; height: 100%; border: 0; background: #fff; }
