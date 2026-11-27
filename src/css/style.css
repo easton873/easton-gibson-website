@@ -44,10 +44,6 @@ body::before {
 
 /* ---------- Blocks ---------- */
 :root { --gutter: max(1.5rem, calc((100% - var(--wrap)) / 2)); }
-.block-red, .block-yellow { padding: 4.5rem var(--gutter); }
-.block-red { background: var(--red); color: var(--cream); }
-.block-yellow { background: var(--yellow); color: var(--ink); }
-.theme-main .nav, .theme-main .footer { background: var(--red); }
 
 h1, h2, h3 { line-height: 1.02; letter-spacing: -.03em; margin: 0 0 1rem; }
 h1 { font-size: clamp(2.6rem, 8vw, 6rem); font-weight: 900; }
@@ -63,7 +59,6 @@ h1 em { font-style: normal; color: var(--yellow); }
   background: var(--cream); color: var(--ink); border: 2px solid transparent; transition: transform .15s;
 }
 .btn:hover { transform: translateY(-2px); }
-.btn--yellow { background: var(--yellow); color: var(--ink); }
 .btn--ghost { background: transparent; color: var(--cream); border-color: var(--cream); }
 
 /* ---------- Cards (each carries its own --h hue) ---------- */
@@ -90,8 +85,6 @@ h1 em { font-style: normal; color: var(--yellow); }
 
 .tags { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem; padding: 0; margin: auto 0 0; }
 .tags li { font-family: var(--mono); font-size: .72rem; padding: .2rem .55rem; border: 1px solid currentColor; border-radius: 99px; opacity: .85; }
-.tags--solid { margin: 0 0 2rem; }
-.tags--solid li { background: var(--red); color: var(--cream); border-color: var(--red); opacity: 1; }
 
 /* ---------- Resume ---------- */
 .resume { display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; }
@@ -127,10 +120,6 @@ h1 em { font-style: normal; color: var(--yellow); }
 
 /* ---------- About: scroll-driven stage ---------- */
 .theme-about { background: #140806; }
-
-/* Resume: plain black */
-.theme-resume { background: #000; color: #f1eefb; }
-.theme-resume::before { display: none; }
 
 /* Portfolio: dark, with a fixed SVG backdrop */
 .theme-portfolio { background: #0b0916 url("/assets/images/portfolio-bg.svg") center / cover fixed no-repeat; color: #f1eefb; }
@@ -195,8 +184,3 @@ h1 em { font-style: normal; color: var(--yellow); }
   .slide__card { justify-self: start; aspect-ratio: 16/10; max-height: 28vh; width: 100%; order: -1; }
   .slide__tint { background: oklch(0.2 0.06 var(--h) / .78); }
 }
-
-/* ---------- Resume: embedded Google Doc ---------- */
-.resume-embed { max-width: 960px; margin: 0 auto; padding: 7rem var(--gutter) 3rem; }
-.resume-embed iframe { display: block; width: 100%; height: 85vh; min-height: 600px; border: 0; border-radius: var(--radius); background: #fff; }
-.resume-embed p { text-align: right; margin-top: 1rem; }
